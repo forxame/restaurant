@@ -8,7 +8,8 @@ export default function Menu() {
 
 
     main.innerHTML = null;
-    setClassName(main);
+    setMainFocusedClass(main); // only for main container
+    setFocusBtn();
     main.append(img1, img2, img3, img4);
 }
 
@@ -27,10 +28,26 @@ function createContainer(source, title) {
     return container;
 }
 
-function setClassName(obj) {
-    if (obj.classList.contains("home")) {
-        obj.classList.replace("home", "menu");
+function setMainFocusedClass(main) {
+    if (main.classList.contains("home")) {
+        main.classList.replace("home", "menu");
     } else {
-        obj.classList.replace("about", "menu");
+        main.classList.replace("about", "menu");
     }
+}
+
+function setFocusBtn() {
+    const home = document.querySelector("#home");
+    const menu = document.querySelector("#menu");
+    const about = document.querySelector("#about");
+
+    if (menu.classList.length == 0) {
+        menu.classList.toggle("active");
+        if (home.classList.contains("active")) {
+            home.classList.remove("active");
+        } else {
+            about.classList.remove("active");
+        }
+    } 
+
 }

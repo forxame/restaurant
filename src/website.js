@@ -10,21 +10,21 @@ function createHeader() {
 
     const homeBtn = document.createElement("button");
     homeBtn.textContent = "Home";
-    homeBtn.setAttribute("id", "Home");
+    homeBtn.setAttribute("id", "home");
     homeBtn.addEventListener("click", () => {
         Home();
     })
 
     const menuBtn = document.createElement("button");
     menuBtn.textContent = "Menu";
-    menuBtn.setAttribute("id", "Menu");
+    menuBtn.setAttribute("id", "menu");
     menuBtn.addEventListener("click", () => {
         Menu();
     })
 
     const aboutBtn = document.createElement("button");
     aboutBtn.textContent = "About";
-    aboutBtn.setAttribute("id", "About");
+    aboutBtn.setAttribute("id", "about");
     aboutBtn.addEventListener("click", () => {
         About();
     })

@@ -1,28 +1,17 @@
 export default function Home() {
     const main = document.querySelector("main");
 
-    const h1 = document.createElement("h1");
-    h1.textContent = "Rally's Buck!";
-    const container1 = createContainer(h1);
 
     const welcomeText = createParagraph(`WELCOME to Rally's Buck! Best restaurant in town
                                         with a big variety of dishes that you can choose from.
                                         Give it a try and you won't regret the experience.`);
-    const container2 = createContainer(welcomeText);
+    const container1 = createContainer(welcomeText);
 
-    const scheduleHeader = createHeader("Schedule");
-    const workDays = createParagraph("Mon - Fri: 8am - 10pm");
-    const freeDays = createParagraph("Sat - Sun: 10am - 5pm");
-    const container3 = createContainer(scheduleHeader, workDays, freeDays);
-
-
-    const locationHeader = createHeader("Location");
-    const locationText = createParagraph("11 Berry West, Joremy City, Leonda");
-    const container4 = createContainer(locationHeader, locationText);
 
     main.innerHTML = null;
-    setClassName(main);
-    main.append(container1, container2, container3, container4);
+    setMainFocusedClass(main); // only for main container
+    setFocusedBtn();
+    main.append(container1);
 }
 
 function createParagraph(text) {
@@ -50,12 +39,29 @@ function createContainer(...child) {
     return container;
 }
 
-function setClassName(obj) {
-    if (obj.classList.length == 0) {
-        obj.classList.toggle("home");
-    } else if (obj.classList.contains("menu")) {
-        obj.classList.replace("menu", "home");
+function setMainFocusedClass(main) {
+    if (main.classList.length == 0) {
+        main.classList.toggle("home");
+    } else if (main.classList.contains("menu")) {
+        main.classList.replace("menu", "home");
     } else {
-        obj.classList.replace("about", "home");
+        main.classList.replace("about", "home");
     }
 }
+
+function setFocusedBtn() {
+    const home = document.querySelector("#home");
+    const menu = document.querySelector("#menu");
+    const about = document.querySelector("#about");
+
+    if (home.classList.length == 0) {
+        home.classList.toggle("active");
+        if (menu.classList.contains("active")) {
+            menu.classList.remove("active");
+        } else {
+            about.classList.remove("active");
+        }
+    }
+}
+
+export {createParagraph, createHeader, createContainer};
