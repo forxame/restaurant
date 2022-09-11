@@ -1,10 +1,10 @@
 export default function Menu() {
     const main = document.querySelector("main");
     
-    const img1 = createContainer("./img/waffles.jpg", "Waffles");
-    const img2 = createContainer("./img/potato-bacon.jpg", "Potato & bacon");
-    const img3 = createContainer("./img/shakshuka.jpg", "Shakshuka");
-    const img4 = createContainer("./img/salmon.jpg", "Salmon");
+    const img1 = createContainer("img/waffles.jpg", "Waffles");
+    const img2 = createContainer("img/potato-bacon.jpg", "Potato & bacon");
+    const img3 = createContainer("img/shakshuka.jpg", "Shakshuka");
+    const img4 = createContainer("img/salmon.jpg", "Salmon");
 
 
     main.innerHTML = null;
